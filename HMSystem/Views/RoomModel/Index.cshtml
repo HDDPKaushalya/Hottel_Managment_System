@@ -1,0 +1,58 @@
+﻿@model IEnumerable<HMSystem.Models.RoomModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col-6">
+        <h2>Rooms</h2>
+    </div>
+    <div class="col-6 text-end">
+        <a asp-action="Create" class="btn btn-success"><i class="bi bi-house-add-fill"></i> Add the Room</a>
+    </div>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomPrice)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomPrice)
+            </td>
+            <td>
+                    <div class="btn-group">
+                        <a class="btn btn-warning m-1" asp-action="Edite"><i class="bi bi-pencil-fill"></i>Edite</a>
+                        <a class="btn btn-success m-1" asp-action="Assign"><i class="bi bi-person-fill-add"></i>Assign</a>
+                        <a class="btn btn-dark m-1" asp-action="Details"><i class="bi bi-info-circle-fill"></i> Details</a>
+                        <a class="btn btn-danger m-1" asp-action="Delete"><i class="bi bi-trash-fill"></i>Delete</a>
+                    </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

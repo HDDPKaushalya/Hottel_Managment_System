@@ -1,0 +1,46 @@
+﻿@model HMSystem.Models.RoomModel
+
+@{
+    ViewData["Title"] = "Edite";
+}
+<div class="text-center">
+    <h2>Edite the Romm</h2>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edite">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoomID" class="control-label"></label>
+                <input asp-for="RoomID" class="form-control" />
+                <span asp-validation-for="RoomID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomCategory" class="control-label"></label>
+                <input asp-for="RoomCategory" class="form-control" />
+                <span asp-validation-for="RoomCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomCapacity" class="control-label"></label>
+                <input asp-for="RoomCapacity" class="form-control" />
+                <span asp-validation-for="RoomCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomPrice" class="control-label"></label>
+                <input asp-for="RoomPrice" class="form-control" />
+                <span asp-validation-for="RoomPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
